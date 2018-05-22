@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+  linuxserver:
+    image: linuxserver/transmission
+    restart: always
+    volumes:
+      - ./config:/config 
+      - ./downloads:/downloads
+      - ./watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    environment:
+      - TZ=Asia/Bangkok
+      - PGID=1001
+      - PUID=1001
+      
